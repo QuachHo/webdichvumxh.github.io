@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng giá dịch vụ mạng xã hội</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Modal thông báo -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-gray-800 p-6 rounded-md max-w-sm mx-4 shadow-lg">
+      <h2 class="text-lg font-semibold mb-2 text-white">Thông báo</h2>
+      <p class="mb-4 text-gray-300">web được code bởi @Quách Hoàng, nếu có thông tin mới, mình sẽ cập nhật sau.</p>
+      <button id="closeModal" class="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded">
+        Đóng
+      </button>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8 space-y-6">
+    <!-- Tiêu đề chính -->
+    <h1 class="text-3xl md:text-4xl font-bold text-center text-white mb-6">
+      Giá Dịch Vụ MXH
+    </h1>
+
+    <!-- YouTube -->
+    <div class="border border-gray-700 rounded-lg overflow-hidden">
+      <button class="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 flex justify-between items-center"
+              onclick="toggleAccordion('youtube')">
+        <span class="font-bold text-[#FF0000] text-lg">YouTube</span>
+        <span class="text-gray-400 text-2xl">+</span>
+      </button>
+      <div id="content-youtube" class="hidden bg-gray-800 px-4 py-4">
+        <p>Theo dõi: <span class="text-green-400 font-semibold">132 vnđ/sub</span></p>
+      </div>
+    </div>
+
+    <!-- Instagram -->
+    <div class="border border-gray-700 rounded-lg overflow-hidden">
+      <button class="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 flex justify-between items-center"
+              onclick="toggleAccordion('instagram')">
+        <span class="font-bold text-[#FF7F50] text-lg">Instagram</span>
+        <span class="text-gray-400 text-2xl">+</span>
+      </button>
+      <div id="content-instagram" class="hidden bg-gray-800 px-4 py-4 space-y-1">
+        <p>Like: <span class="text-green-400 font-semibold">14 vnđ/like</span></p>
+        <p>Theo dõi: <span class="text-green-400 font-semibold">24 vnđ/fl</span></p>
+      </div>
+    </div>
+
+    <!-- TikTok -->
+    <div class="border border-gray-700 rounded-lg overflow-hidden">
+      <button class="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 flex justify-between items-center"
+              onclick="toggleAccordion('tiktok')">
+        <span class="font-bold text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#FF0050] to-[#00F2EA]">TikTok</span>
+        <span class="text-gray-400 text-2xl">+</span>
+      </button>
+      <div id="content-tiktok" class="hidden bg-gray-800 px-4 py-4 space-y-1 text-gray-300">
+        <p>Thả tim video: <span class="text-green-400 font-semibold">12 vnđ/tim</span></p>
+        <p>Theo dõi: <span class="text-green-400 font-semibold">30 vnđ/fl</span></p>
+        <p>Theo dõi global: <span class="text-green-400 font-semibold">30 vnđ/fl</span></p>
+        <p>Theo dõi siêu rẻ: <span class="text-green-400 font-semibold">20 vnđ/fl</span></p>
+        <p>Lượt lưu video: <span class="text-green-400 font-semibold">3 vnđ/lưu</span></p>
+        <p>View video: <span class="text-green-400 font-semibold">3 vnđ/view</span></p>
+        <p>Share video: <span class="text-green-400 font-semibold">6 vnđ/share</span></p>
+        <p>Share livestream: <span class="text-green-400 font-semibold">6 vnđ/share</span></p>
+        <p class="mt-2 font-semibold text-white">Mắt xem livestream:</p>
+        <ul class="ml-4 space-y-1">
+          <li>45 vnđ/15phút/view</li>
+          <li>90 vnđ/30phút/view</li>
+          <li>180 vnđ/60phút/view</li>
+          <li>270 vnđ/90phút/view</li>
+          <li>360 vnđ/120phút/view</li>
+          <li>540 vnđ/180phút/view</li>
+          <li>1080 vnđ/360phút/view</li>
+        </ul>
+        <p class="mt-2">Vip thả tim: <span class="text-green-400 font-semibold">16 vnđ × số like × số post × số ngày</span></p>
+      </div>
+    </div>
+
+    <!-- Facebook -->
+    <div class="border border-gray-700 rounded-lg overflow-hidden">
+      <button class="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 flex justify-between items-center"
+              onclick="toggleAccordion('facebook')">
+        <span class="font-bold text-[#1877F2] text-lg">Facebook</span>
+        <span class="text-gray-400 text-2xl">+</span>
+      </button>
+      <div id="content-facebook" class="hidden bg-gray-800 px-4 py-4 space-y-1">
+        <p>Like page: <span class="text-green-400 font-semibold">20 vnđ/like</span></p>
+        <p>Thành viên nhóm: <span class="text-green-400 font-semibold">30 vnđ/member</span></p>
+        <p>Đánh giá page: <span class="text-green-400 font-semibold">40 vnđ/review</span></p>
+      </div>
+    </div>
+
+    <!-- Facebook New -->
+    <div class="border border-gray-700 rounded-lg overflow-hidden">
+      <button class="w-full text-left px-4 py-3 bg-gray-800 hover:bg-gray-700 flex justify-between items-center"
+              onclick="toggleAccordion('facebookNew')">
+        <span class="font-bold text-[#1877F2] text-lg">Facebook New</span>
+        <span class="text-gray-400 text-2xl">+</span>
+      </button>
+      <div id="content-facebookNew" class="hidden bg-gray-800 px-4 py-4 space-y-1 text-gray-300">
+        <p>Like post vip: <span class="text-green-400 font-semibold">26 vnđ/cảm xúc</span><br>(nhanh/chậm như người thật)</p>
+        <p>Like post vip rẻ: <span class="text-green-400 font-semibold">14 vnđ/cảm xúc</span><br>(nhanh/chậm như người thật)</p>
+        <p>Like post vip tây rẻ: <span class="text-green-400 font-semibold">10 vnđ/cảm xúc</span><br>(nhanh/chậm như người thật)</p>
+        <p>Like comment vip: <span class="text-green-400 font-semibold">26 vnđ/cảm xúc</span><br>(nhanh/chậm như người thật)</p>
+        <p>Share vip: <span class="text-green-400 font-semibold">80 vnđ/share</span></p>
+        <p>Follow vip: <span class="text-green-400 font-semibold">34 vnđ/fl</span></p>
+        <p>Like page vip: <span class="text-green-400 font-semibold">46 vnđ/fl</span></p>
+        <p>Vip like: <span class="text-green-400 font-semibold">giá sever × số like × số post × số ngày</span></p>
+        <ul class="ml-4">
+          <li>Sever 1: 7,4 vnđ (quá tải)</li>
+          <li>Sever 2: 4,4 vnđ (quá tải)</li>
+          <li>Sever 3: 18 vnđ</li>
+          <li>Sever 4: 12 vnđ</li>
+          <li>Sever 5 (tây): 5 vnđ</li>
+          <li>Sever 6: 7 vnđ</li>
+        </ul>
+        <p>View story vip: <span class="text-green-400 font-semibold">330 vnđ/view</span></p>
+        <p class="mt-2 font-semibold text-white">Mắt livestream:</p>
+        <ul class="ml-4 space-y-1">
+          <li>36 vnđ/15phút/view</li>
+          <li>72 vnđ/30phút/view</li>
+          <li>108 vnđ/45phút/view</li>
+          <li>144 vnđ/60phút/view</li>
+          <li>216 vnđ/90phút/view</li>
+          <li>288 vnđ/120phút/view</li>
+          <li>360 vnđ/150phút/view</li>
+          <li>432 vnđ/180phút/view</li>
+          <li>504 vnđ/210phút/view</li>
+          <li>576 vnđ/240phút/view</li>
+          <li>648 vnđ/270phút/view</li>
+          <li>720 vnđ/300phút/view</li>
+          <li>864 vnđ/6 tiếng/view</li>
+          <li>1728 vnđ/12 tiếng/view</li>
+          <li>3456 vnđ/24 tiếng/view</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center text-gray-400 py-6 border-t border-gray-700 mt-8">
+    <p>Quách Hoàng</p>
+    <p><a href="https://facebook.com/quach.hoang.2007" target="_blank" class="underline hover:text-white">
+      facebook.com/quach.hoang.2007
+    </a></p>
+    <p>Ngân hàng: MB Bank | Số tài khoản: 20729012007</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('modal');
+      modal.classList.remove('hidden');
+      document.getElementById('closeModal').addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    });
+
+    function toggleAccordion(id) {
+      document.querySelectorAll('[id^="content-"]').forEach(div => {
+        if (div.id !== `content-${id}`) div.classList.add('hidden');
+      });
+      document.getElementById(`content-${id}`).classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
